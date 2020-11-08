@@ -1,8 +1,7 @@
 :- module(math, [
   straight_line/2,
   distance/3,
-  midpoint/3,
-  perpendicular_intersection/3
+  midpoint/3
 ]).
 
 straight_line([_, Y], [_, Y]) :- true, !.
