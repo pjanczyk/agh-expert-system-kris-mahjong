@@ -1,0 +1,39 @@
+﻿@model Tile?[,]
+@{
+  ViewData["Title"] = "Home Page";
+}
+
+<table id="myTable">
+  @for (var row = 0; row < Model.GetLength(0); row++)
+  {
+    <tr>
+      @for (var col = 0; col < Model.GetLength(1); col++)
+      {
+        <td>
+          <a onclick="clicked(@row, @col)" id="@row : @col" class="pointer">
+            <div class="tile">
+              @{ switch (Model[row, col])
+                 {
+                   case Tile.First:
+                     <img src="1.png"/>
+                     break;
+                   case Tile.Second:
+                     <img src="2.png"/>
+                     break;
+                   case Tile.Third:
+                     <img src="3.png"/>
+                     break;
+                   case Tile.Fourth:
+                     <img src="4.png"/>
+                     break;
+                   case Tile.Fifth:
+                     <img src="5.png"/>
+                     break;
+                 } }
+            </div>
+            </a>
+        </td>
+      }
+    </tr>
+  }
+</table>
