@@ -27,6 +27,7 @@ set_tile(_, -).
 set_tile(Pos, Tile) :-
   assertz(board:tile_at(Pos, Tile)).
 
+
 test('Can remove adjacent tiles of same type') :-
   set_board([
     % 1  2  3  4

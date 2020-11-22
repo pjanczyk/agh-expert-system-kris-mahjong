@@ -21,13 +21,12 @@ tiles_of_same_type(Pos1, Pos2) :-
   board:tile_at(Pos2, TileType).
 
 connected_by_path(Pos1, Pos2) :-
-  connected_by_straight_path(Pos1, Pos2);
-  connected_by_path_with_1_turn(Pos1, Pos2);
+  connected_by_straight_path(Pos1, Pos2) ;
+  connected_by_path_with_1_turn(Pos1, Pos2) ;
   connected_by_path_with_2_turns(Pos1, Pos2).
 
 connected_by_straight_path(Pos1, Pos2) :-
-  math:distance(Distance, Pos1, Pos2),
-  Distance =:= 1.
+  math:distance(1, Pos1, Pos2).
 
 connected_by_straight_path(Pos1, Pos2) :- 
   math:straight_line(Pos1, Pos2),
