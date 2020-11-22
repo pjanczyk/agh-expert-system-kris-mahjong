@@ -1,14 +1,17 @@
 # agh-expert-systems
 
-## Demo
+## Prolog
 
-```
-swipl
-?- [demo].
-```
-
-## Unit tests
+#### Demo
 
 ```bash
+cd prolog
+./demo.sh
+```
+
+#### Unit tests
+
+```bash
+cd prolog
 ./test.sh
 ```
