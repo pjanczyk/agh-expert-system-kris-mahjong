@@ -9,7 +9,7 @@
 suggested_tiles_to_remove(Pos1, Pos2) :-
   in_board(Pos1),
   in_board(Pos2),
-  math:points_totally_ordered(Pos1, Pos2),
+  Pos1 @< Pos2,
   can_remove_tiles(Pos1, Pos2).
 
 can_remove_tiles(Pos1, Pos2) :-
