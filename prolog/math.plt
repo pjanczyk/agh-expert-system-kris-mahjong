@@ -14,4 +14,9 @@ test(distance) :-
 test(midpoint) :-
   math:midpoint([5, 4], [9, 3], [2, 5]).
 
+test(matrix_size) :-
+  math:matrix_size([0, 0], []),
+  math:matrix_size([1, 1], [[a]]),
+  math:matrix_size([3, 2], [[a, a, a], [a, a, a]]).
+
 :- end_tests(math).
