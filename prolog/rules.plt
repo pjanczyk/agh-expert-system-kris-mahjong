@@ -4,10 +4,10 @@
 test('Can remove adjacent tiles of same type') :-
   board:init_board([
     % 1  2  3  4
-    [ ♢, ♢, ♢, ♢ ], % 1
-    [ ♢, ♣, ♣, ♢ ], % 2
-    [ ♢, ♣, ♢, ♢ ], % 3
-    [ ♢, ♢, ♢, ♢ ]  % 4
+    [ 1, 1, 1, 1 ], % 1
+    [ 1, 2, 2, 1 ], % 2
+    [ 1, 2, 1, 1 ], % 3
+    [ 1, 1, 1, 1 ]  % 4
   ]),
   rules:can_remove_tiles([2, 2], [2, 3]),
   rules:can_remove_tiles([2, 2], [3, 2]).
@@ -15,16 +15,16 @@ test('Can remove adjacent tiles of same type') :-
 test('Cannot remove tiles of different type') :-
   board:init_board([
     % 1  2
-    [ ♣, ♥ ] % 1
+    [ 2, 3 ] % 1
   ]),
   \+ rules:can_remove_tiles([1, 1], [1, 2]).
 
 test('Can remove tiles connected by straight path') :-
   board:init_board([
     % 1  2  3  4  5
-    [ ♢, ♢, ♢, ♥, ♢ ], % 1
-    [ ♣, -, -, -, ♣ ], % 2
-    [ ♢, ♢, ♢, ♥, ♢ ]  % 3
+    [ 1, 1, 1, 3, 1 ], % 1
+    [ 2, -, -, -, 2 ], % 2
+    [ 1, 1, 1, 3, 1 ]  % 3
   ]),
   rules:can_remove_tiles([1, 2], [5, 2]),
   rules:can_remove_tiles([4, 1], [4, 3]).
@@ -32,30 +32,30 @@ test('Can remove tiles connected by straight path') :-
 test('Can remove tiles connected by path with 1 turn') :-
   board:init_board([
     % 1  2  3  4  5
-    [ ♢, ♣, ♢, ♢, ♢ ], % 1
-    [ ♢, -, ♢, ♢, ♢ ], % 2
-    [ ♢, -, -, -, ♣ ], % 3
-    [ ♢, ♢, ♢, ♢, ♢ ]  % 4
+    [ 1, 2, 1, 1, 1 ], % 1
+    [ 1, -, 1, 1, 1 ], % 2
+    [ 1, -, -, -, 2 ], % 3
+    [ 1, 1, 1, 1, 1 ]  % 4
   ]),
   rules:can_remove_tiles([2, 1], [5, 3]).
 
 test('Can remove tiles connected by path with 2 turns') :-
   board:init_board([
     % 1  2  3  4  5
-    [ ♢, ♢, ♢, ♢, ♢ ], % 1
-    [ ♢, ♣, ♢, ♢, ♢ ], % 2
-    [ ♢, -, ♢, ♣, ♢ ], % 3
-    [ ♢, -, -, -, ♢ ], % 4
-    [ ♢, ♢, ♢, ♢, ♢ ]  % 5
+    [ 1, 1, 1, 1, 1 ], % 1
+    [ 1, 2, 1, 1, 1 ], % 2
+    [ 1, -, 1, 2, 1 ], % 3
+    [ 1, -, -, -, 1 ], % 4
+    [ 1, 1, 1, 1, 1 ]  % 5
   ]),
   rules:can_remove_tiles([2, 2], [4, 3]).
 
 test('Can remove tiles connected by path with 2 turns outside board') :-
   board:init_board([
     % 1  2  3  4 
-    [ ♣, ♢, ♢, ♣ ], % 1
-    [ ♢, ♢, ♢, ♢ ], % 2
-    [ ♣, ♢, ♣, ♢ ]  % 3
+    [ 2, 1, 1, 2 ], % 1
+    [ 1, 1, 1, 1 ], % 2
+    [ 2, 1, 2, 1 ]  % 3
   ]),
   rules:can_remove_tiles([1, 1], [4, 1]),
   rules:can_remove_tiles([1, 1], [1, 3]),
@@ -64,10 +64,10 @@ test('Can remove tiles connected by path with 2 turns outside board') :-
 test('Cannot remove not connected tiles') :-
   board:init_board([
     % 1  2  3  4 
-    [ ♢, ♣, ♢, ♢ ], % 1
-    [ ♢, ♢, ♢, ♢ ], % 2
-    [ ♢, ♣, ♢, ♣ ], % 3
-    [ ♢, ♢, ♢, ♢ ]  % 4
+    [ 1, 2, 1, 1 ], % 1
+    [ 1, 1, 1, 1 ], % 2
+    [ 1, 2, 1, 2 ], % 3
+    [ 1, 1, 1, 1 ]  % 4
   ]),
   \+ rules:can_remove_tiles([2, 1], [2, 3]),
   \+ rules:can_remove_tiles([2, 1], [4, 3]),
