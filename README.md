@@ -1,17 +1,9 @@
 # agh-expert-systems
 
-## Prolog
 
-#### Demo
-
+Execute
 ```bash
-cd prolog
-./demo.sh
+docker-compose up --build
 ```
 
-#### Unit tests
-
-```bash
-cd prolog
-./test.sh
-```
+And open http://localhost:3000/
