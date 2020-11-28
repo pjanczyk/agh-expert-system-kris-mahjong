@@ -42,6 +42,7 @@ put_tile_row_(Y, CurrentX, [Tile|Tiles]) :-
   put_tile_row_(Y, NextX, Tiles).
 
 put_tile(_, -).
+put_tile(_, "-").
 put_tile(Pos, Tile) :-
   assertz(tile_at(Pos, Tile)).
 
