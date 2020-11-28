@@ -2,6 +2,7 @@
 :- use_module(library(http/http_dispatch)).
 :- use_module(library(http/http_json)).
 :- use_module(library(http/http_cors)).
+:- use_module(library(http/http_unix_daemon)).
 :- use_module(board).
 :- use_module(rules).
 
@@ -14,7 +15,7 @@ http_json:json_type('text/javascript').
 http_json:json_type('text/x-javascript').
 http_json:json_type('text/x-json').
 
-:- http_server(http_dispatch, [port(5000)]).
+% :- http_server(http_dispatch, [port(5000)]).
 :- http_handler('/api/can-remove-tiles', handle_can_remove_tile(Method), [method(Method)]).
 :- http_handler('/api/suggest-moves', handle_suggest_moves(Method), [method(Method)]).
 
